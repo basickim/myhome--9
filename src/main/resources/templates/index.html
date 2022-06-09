@@ -13,19 +13,17 @@
 
     <title>Hello, Spring Boot!</title>
 </head>
+<link th:href="@{/css/style.css}" rel="stylesheet">
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common :: menu('home')">
     </nav>
 
-    <main role="main" class="container">
-
-        <div class="starter-template">
-            <h1>Srping Boot Tutorial</h1>
-            <p class="lead">Spring Boot을 이용해 웹 페이지 제작<br> 
-                Spring Security, JPA를 이용해 보안 설정과 데이터 다루기</p>
-        </div>
-
+    <main role="main" class="container font align-items-center bg-light p-3 mt-5" style="min-height: 25rem; font-style: italic;">
+        <h1 class="mt-5 text-center text" >What is <div class="d-inline" id="title">RECOMMENT</div>?</h1>
+        <h3 class="mt-5 text-center">RECOMMENT = RECOMMEND + COMMENT</h3>
+        <h4 class="mt-5 text-center">RECOMMENT는 여러분들이 좋아하는 동영상을 많은 이용자들에게 <div class="d-inline" id="title">추천</div>할 수 있는 세상을 만들었습니다!</h4>
+        <h4 class="mt-5 text-center">다른사람들이 공유한 동영상을 마음껏 구경하고 재밌는  <div class="d-inline" id="title">댓글</div>을 남겨주세요!</h4>
     </main>
 
     <footer th:replace="fragments/common :: footer">

@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'LeferiPoint-BlackA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-BlackA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeferiBaseType-RegularA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiBaseType-RegularA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeferiPoint-WhiteA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes animate{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%} 
+}
+
+html, body{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    background-repeat: no-repeat;
+    animation: animate 20s ease infinite;
+    height: 100%;
+}
+
+#title{
+    font-family: 'LeferiPoint-BlackA';
+    font-weight: 600;
+    color: #fbc531;
+    font-style: italic;
+    user-select: none;
+}
+
+.btn{
+    font-family: 'LeferiPoint-WhiteA';
+    border-radius: 0;
+    background-color: #fbc531;
+    color: white;
+    border: none;
+    font-family: 'LeferiPoint-BlackA';
+    font-style: italic;
+}
+
+.btn:hover{
+    /*background-color: #f1b100;*/
+    color: #fbc531;
+    border: 1px solid black;
+    background-color: white;
+    text-decoration: underline;
+    margin: -1px;
+
+.font{
+        font-family: 'LeferiBaseType-RegularA';
+    }
+}

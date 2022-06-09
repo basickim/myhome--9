@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.File;
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class BoardService {
 
     @Autowired
     private UserRepository userRepository;
+
 
 
     public void save(String username, Board board, MultipartFile file) throws  Exception{
@@ -33,7 +35,6 @@ public class BoardService {
             User user= userRepository.findByUsername(username);
             board.setUser(user);
             boardRepository.save(board);
-
         }
 
 
@@ -46,4 +47,20 @@ public class BoardService {
     public void boardDelete(Long id) {
         boardRepository.deleteById(id);
     }
+
+    @Transactional
+    public void updateView(Long id) {
+         boardRepository.updateView(id);
+    }
+
+    @Transactional
+    public void updateLikes(Long id) {
+        boardRepository.updateLikes(id);
+    }
+
+    @Transactional
+    public void updateHate(Long id) {
+        boardRepository.updateHate(id);
+    }
+
 }

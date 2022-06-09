@@ -1,6 +1,7 @@
 package com.godcoder.myhome.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,14 +32,22 @@ public class Board {
 
     private String url;
 
+    private Long likes=0L;
+
+    private Long view=0L;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
 
-    @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
-    @JsonIgnore
-    private List<Comment>  comment = new ArrayList<>();
+
+
+//    @OrderBy("id desc")
+//    @JsonIgnoreProperties({"board"})
+//    @OneToMany(mappedBy = "board", fetch=FetchType.EAGER)
+//    private List<Comment> commentList;
+
 
 
 }

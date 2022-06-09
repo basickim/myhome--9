@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    align-items: center;
+}
+
+.loginForm {
+    font-family: 'LeferiPoint-WhiteA';
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+  
+.loginForm .form-floating:focus-within {
+    z-index: 2;
+}
+  
+.loginForm input[type="text"] {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+  
+.loginForm input[type="password"] {
+    border-radius: 0;
+}

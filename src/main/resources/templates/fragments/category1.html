@@ -13,23 +13,27 @@
 
     <title>Hello, Spring Boot!</title>
 </head>
+<link th:href="@{/css/style.css}" rel="stylesheet">
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common2 :: menu('board')">
     </nav>
 
-    <main role="main" class="container">
+    <main role="main" class="container font align-items-center bg-light p-3 mt-5" style="min-height: 25rem; font-style: italic;">
+        <h1 class="mt-5 text-center text" >What is <div class="d-inline" id="title">RECOMMENT</div>?</h1>
+        <h3 class="mt-5 text-center">RECOMMENT = RECOMMEND + COMMENT</h3>
+        <h1 class="mt-5 text-center">원하는 게시판을 상단에서 <div class="d-inline" id="title">선택</div>해 주세요!</h1>
 
-        <div class="starter-template">
-            <h1>Srping Boot Tutorial</h1>
-            <p class="lead">Spring Boot을 이용해 웹 페이지 제작<br> 
-                Spring Security, JPA를 이용해 보안 설정과 데이터 다루기</p>
-        </div>
+    </main>
 
     </main>
 
     <footer th:replace="fragments/common :: footer">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        <div class="container">
+            <p class="mb-1">RECOMMENT in 오픈소스웹프로젝트 <br> 2016039082 신효민 / 2020039073 김형태 / 2020038029 이규빈</p>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"

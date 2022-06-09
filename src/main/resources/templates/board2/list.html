@@ -16,63 +16,67 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragments/common2 :: menu('board2')">
-        <!-- <a class="navbar-brand" href="#">Spring Boot Tutorial</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">홈 <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">게시판</a>
-                </li>
-            </ul>            
-        </div> -->
     </nav>
 
-    <div class="container">
+    <div class="container bg-light">
         <h2>게시판</h2>
-        <div>총 건수 : <span th:text="${boards2.totalElements}"></span></div>
-        <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board2/list}">
+        <div>총 건수 : <span th:text="${boards.totalElements}"></span></div>
+       <div class="row">
+            <div class="col-6">
+
+                <a type="button" class="btn btn-outline-secondary active"  th:href="@{/board2/list}">최신순</a>
+                <a type="button" class="btn btn-outline-secondary"  th:href="@{/board2/list4}">오래된순</a>
+                <a type="button" class="btn btn-outline-secondary"   th:href="@{/board2/list2}">좋아요순</a>
+                <a type="button" class="btn btn-outline-secondary"   th:href="@{/board2/list3}">조회수순</a>
+            </div>
+           <div class="col-6">
+           <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board/search}">
             <div class="form-group mx-sm-3 mb-2">
-                <label for="searchText" class="sr-only">검색</label>
-                <input type="text" class="form-control" id="searchText" name="searchText"
+
+
+
+            <label for="searchText" class="sr-only">검색</label>
+                <input type="text" class="form-control float-right" id="searchText" name="searchText"
                     th:value="${param.searchText}">
             </div>
-            <button type="submit" class="btn btn-light mb-2">검색</button>
+            <button type="submit" class="btn btn-light mb-2 float-right">검색</button>
         </form>
+           </div>
+        </div>
+
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">번호</th>
                     <th scope="col">제목</th>
                     <th scope="col">작성자</th>
+                    <th scope="col">조회수</th>
+                    <th scope="col">좋아요</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="board2 : ${boards2}">
-                    <td th:text="${board2Stat.count}">Mark</td>
-                    <td><a th:text="${board2.title}" th:href="@{/board2/view(id=${board2.id})}">Otto</a></td>
-                    <td th:text="${board2.user2.username}">홍길동</td>
+                <tr th:each="board : ${boards1}">
+                    <td th:text="${boardStat.count}">Mark</td>
+                    <td><a style="color:#fbc531; font-weight:bold;" th:text="${board.title}" th:href="@{/board2/view(id=${board.id})}">Otto</a></td>
+                    <td th:text="${board.user2.username}">홍길동</td>
+                    <td th:text="${board.view}">홍길동</td>
+                    <td th:text="${board.likes}">홍길동</td>
                 </tr>
             </tbody>
         </table>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item" th:classappend="${1 == boards2.pageable.pageNumber + 1} ? 'disabled'">
+                <li class="page-item" th:classappend="${1 == boards.pageable.pageNumber + 1} ? 'disabled'">
                     <a class="page-link" href="#"
-                        th:href="@{/board2/list(page=${boards2.pageable.pageNumber - 1},searchText=${param.searchText})}"
+                        th:href="@{/board2/list(page=${boards.pageable.pageNumber - 1},searchText=${param.searchText})}"
                         tabindex="-1" aria-disabled="true">Previous</a>
                 </li>
-                <li class="page-item" th:classappend="${i == boards2.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
+                <li class="page-item" th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
                   <a class="page-link" href="#" th:href="@{/board2/list(page=${i - 1},searchText=${param.searchText})}" th:text="${i}">1</a>
                 </li>
-              <li class="page-item" th:classappend="${boards2.totalPages == boards2.pageable.pageNumber + 1} ? 'disabled'">
-                <a class="page-link" href="#" th:href="@{/board2/list(page=${boards2.pageable.pageNumber + 1},searchText=${param.searchText})}">Next</a>
+              <li class="page-item" th:classappend="${boards.totalPages == boards.pageable.pageNumber + 1} ? 'disabled'">
+                <a class="page-link" href="#" th:href="@{/board2/list(page=${boards.pageable.pageNumber + 1},searchText=${param.searchText})}">Next</a>
               </li>
             </ul>
           </nav>

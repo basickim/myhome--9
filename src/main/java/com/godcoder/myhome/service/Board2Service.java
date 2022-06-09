@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.File;
 import java.util.UUID;
 
@@ -47,5 +48,14 @@ public class Board2Service {
 
     public void boardDelete(Long id) {
         board2Repository.deleteById(id);
+    }
+    @Transactional
+    public void updateLikes(Long id) {
+        board2Repository.updateLikes(id);
+    }
+
+    @Transactional
+    public void updateHate(Long id) {
+        board2Repository.updateHate(id);
     }
 }

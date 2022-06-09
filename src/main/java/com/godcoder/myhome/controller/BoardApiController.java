@@ -1,5 +1,7 @@
 package com.godcoder.myhome.controller;
 import com.godcoder.myhome.model.Board;
+import com.godcoder.myhome.repository.Board2Repository;
+import com.godcoder.myhome.repository.Board3Repository;
 import com.godcoder.myhome.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
@@ -14,6 +16,12 @@ class BoardApiController {
 
     @Autowired
     private BoardRepository repository;
+    @Autowired
+    private Board2Repository repository2;
+
+    @Autowired
+    private Board3Repository repository3;
+
 
     @GetMapping("/boards")
     List<Board> all(@RequestParam(required = false, defaultValue = "") String title,
@@ -57,4 +65,7 @@ class BoardApiController {
     void deleteBoard(@PathVariable Long id) {
         repository.deleteById(id);
     }
+
+
+
 }

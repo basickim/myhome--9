@@ -31,6 +31,10 @@ public class Board2 {
 
     private String url;
 
+    private Long likes=0L;
+
+    private Long view=0L;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
