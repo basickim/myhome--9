@@ -55,7 +55,8 @@
                 <a class="btn btn-secondary" th:href="@{/board/list}">취소</a>
                 <button type="button" class="btn btn-secondary"
                         sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="|deleteBoard(*{id})|">삭제</button>
-                <a type="submit" class="btn btn-secondary" th:classappend="${boardUser} != *{user.username} ? 'disabled' : ''" th:href="@{/board/form(id=${board.id})}">수정</a>
+                <a type="submit" class="btn btn-secondary" th:classappend="${boardUser} != *{user.username} ? 'disabled' : ''"
+                   th:href="@{/board/form(id=${board.id})}">수정</a>
             </div>
         </form>
         <div id="comments-list" th:each="comment : ${commentDtos}">

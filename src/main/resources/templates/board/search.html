@@ -57,7 +57,7 @@
             <tbody>
                 <tr th:each="board : ${boards}">
                     <td th:text="${boardStat.count}">Mark</td>
-                    <td><a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}">Otto</a></td>
+                    <td><a style="color:#fbc531; font-weight:bold;" th:text="${board.title}" th:href="@{/board/view(id=${board.id})}">Otto</a></td>
                     <td th:text="${board.user.username}">홍길동</td>
                     <td th:text="${board.view}">홍길동</td>
                     <td th:text="${board.likes}">홍길동</td>

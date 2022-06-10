@@ -45,6 +45,10 @@ public class Board2Service {
 
         return board2Repository.findById(id).get();
     }
+    @Transactional
+    public void updateView(Long id) {
+        board2Repository.updateView(id);
+    }
 
     public void boardDelete(Long id) {
         board2Repository.deleteById(id);

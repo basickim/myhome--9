@@ -40,6 +40,8 @@ public class Board2 {
     @JsonIgnore
     private User user2;
 
+    @OneToMany(mappedBy = "board", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    private List<Comment2> comments = new ArrayList<>();
 
 
 

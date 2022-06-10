@@ -30,6 +30,8 @@ public class Comment {
     private String content;
 
 
+
+
     public static Comment createComment(CommentDto dto, Board board) {
         // 예외 처리
         if (dto.getId() != null)

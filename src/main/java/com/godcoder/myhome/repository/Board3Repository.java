@@ -18,11 +18,14 @@ public interface Board3Repository extends JpaRepository<Board3, Long> {
     Page<Board3> findByTitleContainingOrContentContaining(String title, String content, Pageable pageable);
 
     @Modifying
-    @Query("update Board p set p.likes = p.likes + 1 where p.id = :id")
+    @Query("update Board3 p set p.view = p.view + 1 where p.id = :id")
+    void updateView(Long id);
+    @Modifying
+    @Query("update Board3 p set p.likes = p.likes + 1 where p.id = :id")
     void updateLikes(Long id);
 
     @Modifying
-    @Query("update Board p set p.likes = p.likes - 1 where p.id = :id")
+    @Query("update Board3 p set p.likes = p.likes - 1 where p.id = :id")
     void updateHate(Long id);
 
 }

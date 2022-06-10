@@ -154,6 +154,7 @@ public class Board2Controller {
 
     @GetMapping("/view")
     public String view(Model model, Long id, Authentication authentication) {
+        board2Service.updateView(id);
         model.addAttribute("board", board2Service.boardView(id));
         String username = authentication.getName();
         model.addAttribute("boardUser",username);
